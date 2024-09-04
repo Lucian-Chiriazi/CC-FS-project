@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "reviews")
-@Data
+@Data //Takes care of getters and setter.
 @AllArgsConstructor
 @NoArgsConstructor
 public class Review {
@@ -16,4 +16,8 @@ public class Review {
     private ObjectId id;
 
     private String body;
+
+    public Review(String body) {
+        this.body = body;
+    }
 }

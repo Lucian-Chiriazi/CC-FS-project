@@ -11,13 +11,13 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
 
-@Document(collection = "movies")
-@Data
+@Document(collection = "movies") //Represents each document in the movie's collection.
+@Data //takes care of getters and setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
 
-    @Id
+    @Id //This tells the database that this property is the unique identifier.
     private ObjectId id;
 
     private String title;
@@ -28,7 +28,7 @@ public class Movie {
     private List<String> genres;
     private List<String> backdrops;
 
-    @DocumentReference
+    @DocumentReference  //Manual Reference Relationship - Saves only the objectId of the review and the body in a separate collection.
     private List<Review> reviewIds;
 
 }
